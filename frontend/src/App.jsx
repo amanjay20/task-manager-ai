@@ -10,17 +10,17 @@ function App() {
   const [title, setTitle] = useState("");
 
   // Fetch tasks
-  useEffect(() => {
-    API.get("/tasks").then(res => setTasks(res.data));
-  }, []);
+  useEffect( ()=>{
+    API.get("/tasks").then( res => setTasks(res.data))
+  })
 
   // Add task
-  const addTask = async () => {
+  const addTask = async()=>{
     if (!title.trim()) return;
-    const res = await API.post("/tasks", { title });
-    setTasks([...tasks, res.data]);
-    setTitle("");
-  };
+    const res  = await API.post("/tasks", {title})
+    setTasks([...tasks , res.data])
+    setTitle()
+  }
 
   // Toggle task status
   const toggleTask = async (task) => {
